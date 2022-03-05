@@ -57,13 +57,13 @@ namespace ariel
         {
             if(x%2==0 || y%2==0 || x<1 || y<1)
             {
-                throw "Illegal argument";
+                throw invalid_argument("Invalid argument");
             }
         }
         catch(string e)
         {
-            cerr << e << endl;
-            // return e;
+            // cerr << e << endl;
+            return e;
         }
 
         string matt = "";
