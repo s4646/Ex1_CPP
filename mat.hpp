@@ -9,7 +9,7 @@ namespace ariel
     string convertToString(char* a, int size);  
     string evenRow(int rowIndex, int columns, char a, char b);
     string oddRow(int rowIndex, int columns, char a, char b);
-    string mat(int x, int y, char a, char b);
+    string mat(int columns, int rows, char a, char b);
 }
 
 #endif // MAT_INCLUDED

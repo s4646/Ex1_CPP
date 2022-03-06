@@ -50,12 +50,12 @@ namespace ariel
     }
     
     
-    string mat(int y, int x, char a, char b)
+    string mat(int columns, int rows, char a, char b)
     {
        // check for invalid input
        try
         {
-            if(x%2==0 || y%2==0 || x<1 || y<1)
+            if(rows%2==0 || columns%2==0 || rows<1 || columns<1)
             {
                 throw invalid_argument("Invalid argument");
             }
@@ -68,7 +68,7 @@ namespace ariel
 
         string matt = "";
         
-        int median = (x/2);
+        int median = (rows/2);
 
         // print top half of the mat
         string temp;
@@ -76,12 +76,12 @@ namespace ariel
         {
             if((i+1)%2==0)
             {
-                temp = evenRow(i, y, a, b);
+                temp = evenRow(i, columns, a, b);
                 matt += temp;
             }
             else
             {
-                temp = oddRow(i, y, a, b);
+                temp = oddRow(i, columns, a, b);
                 matt += temp;
             }
             matt += '\n';
@@ -89,9 +89,9 @@ namespace ariel
 
         // print median row
         if((median+1)%2==0)
-            temp = evenRow(median, y, a, b);
+            temp = evenRow(median, columns, a, b);
         else
-            temp = oddRow(median, y, a, b);
+            temp = oddRow(median, columns, a, b);
         matt += temp;
         matt += '\n';
         
@@ -100,12 +100,12 @@ namespace ariel
         {
             if((i+1)%2==0)
             {
-                temp = evenRow(i, y, a, b);
+                temp = evenRow(i, columns, a, b);
                 matt += temp;
             }
             else
             {
-                temp = oddRow(i, y, a, b);
+                temp = oddRow(i, columns, a, b);
                 matt += temp;
             }
             matt +='\n';
