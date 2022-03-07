@@ -107,6 +107,11 @@ TEST_CASE("Good input")
 	***********
 	*/
 	CHECK(nospaces(mat(11, 3, '*', '%')) == nospaces("***********\n*%%%%%%%%%*\n***********"));
+	
+	/* 11
+	+++++++
+	*/
+	CHECK(nospaces(mat(7, 1, '+', '-')) == nospaces("+\n+\n+\n+\n+\n+\n+"));
 }
 
 TEST_CASE("Bad input") 
