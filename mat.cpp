@@ -8,6 +8,9 @@ using namespace std;
 
 namespace ariel
 {
+    /*
+        this function converts a vector to a string and returns the string
+    */
     string convertToString(vector<char> a, int size)
     {
         string s;
@@ -17,6 +20,15 @@ namespace ariel
         return s;
     }
 
+    /*
+        this function creates a single EVEN row string.
+        the string is created by the following rules:
+        - determine how many times we need to change chars by observing rowIndex
+        - since the row is even, we can only modify the even indexes.
+          therefore, we scan the vector and modify the 2*i and (columns-1)-(2*i) indexes
+          for each i < times
+
+    */
     string evenRow(int rowIndex, int columns, char a, char b)
     {
         vector<char> arr;
@@ -35,6 +47,15 @@ namespace ariel
         return ret;
     }
 
+    /*
+        this function creates a single ODD row string.
+        the string is created by the following rules:
+        - determine how many times we need to change chars by observing rowIndex
+        - since the row is odd, we can only modify the odd indexes.
+          therefore, we scan the vector and modify the (2*i)+1 and ((columns-1)-1)-(2*i) indexes
+          for each i < times
+
+    */
     string oddRow(int rowIndex, int columns, char a, char b)
     {
         vector<char> arr;
@@ -58,7 +79,9 @@ namespace ariel
         return ret;
     }
     
-    
+    /*
+        this function prints the mat
+    */
     string mat(int columns, int rows, char a, char b)
     {
        // check for invalid input
@@ -71,7 +94,6 @@ namespace ariel
         }
         catch(string e)
         {
-            // cerr << e << endl;
             return e;
         }
 
@@ -123,7 +145,6 @@ namespace ariel
             }
             matt +='\n';
         }
-
         return matt;
     }
 }
