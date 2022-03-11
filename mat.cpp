@@ -3,6 +3,7 @@
 #include <string>
 #include <stdexcept>
 #include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -84,18 +85,15 @@ namespace ariel
     */
     string mat(int columns, int rows, char a, char b)
     {
+        const int f1 = 33;
+        const int f2 = 127;
        // check for invalid input
-       try
+        if(rows%2==0 || columns%2==0 || rows<1 || columns<1 || a<f1 || b<f1 || !(a<f2) || !(b<f2))
         {
-            if(rows%2==0 || columns%2==0 || rows<1 || columns<1)
-            {
-                throw invalid_argument("Invalid argument");
-            }
+            throw invalid_argument("Invalid argument");
         }
-        catch(string e)
-        {
-            return e;
-        }
+
+        cout<<"rows: "<<rows<<" columns: "<<columns<<" char1: "<<a<<" char2: "<<b<<endl;
 
         string matt;
         
@@ -117,6 +115,9 @@ namespace ariel
             }
             matt += '\n';
         }
+        // reverse a copy of the top half
+        string rev = matt;
+        reverse(rev.begin(), rev.end());
 
         // print median row
         if((median+1)%2==0)
@@ -131,20 +132,8 @@ namespace ariel
         matt += '\n';
         
         // print bottom half of the mat
-        for(int i = median-1; i > -1; i--)
-        {
-            if((i+1)%2==0)
-            {
-                temp = evenRow(i, columns, a, b);
-                matt += temp;
-            }
-            else
-            {
-                temp = oddRow(i, columns, a, b);
-                matt += temp;
-            }
+            matt += rev;
             matt +='\n';
+            return matt;
         }
-        return matt;
-    }
 }
