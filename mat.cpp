@@ -129,7 +129,6 @@ namespace ariel
             temp = oddRow(median, columns, a, b);
         }
         matt += temp;
-        matt += '\n';
         
         // print bottom half of the mat
             matt += rev;
