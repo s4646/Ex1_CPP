@@ -93,7 +93,7 @@ namespace ariel
             throw invalid_argument("Invalid argument");
         }
 
-        cout<<"rows: "<<rows<<" columns: "<<columns<<" char1: "<<a<<" char2: "<<b<<endl;
+        // cout<<"rows: "<<rows<<" columns: "<<columns<<" char1: "<<a<<" char2: "<<b<<endl;
 
         string matt;
         

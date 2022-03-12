@@ -9,7 +9,7 @@ SOURCES=mat.cpp
 run: test
 	./$^
 
-test: TestRunner.o StudentTest2.o StudentTest3.o $(OBJECTS) $(OBJECTS)
+test: TestRunner.o StudentTest1.o StudentTest2.o StudentTest3.o $(OBJECTS) $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
 
 main: Main.o $(OBJECTS)
@@ -18,9 +18,9 @@ main: Main.o $(OBJECTS)
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
 
-# # Ohad Madei
-# StudentTest1.cpp:  
-# 	curl https://raw.githubusercontent.com/Ohad-Ma/carpets-maker-1/master/Test.cpp > $@
+# Ohad Madei
+StudentTest1.cpp:  
+	curl https://raw.githubusercontent.com/Ohad-Ma/carpets-maker-1/master/Test.cpp > $@
 
 # Dvir Biton
 StudentTest2.cpp: 
