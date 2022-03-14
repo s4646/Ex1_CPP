@@ -31,7 +31,13 @@ TEST_CASE("Good input")
 	@-------@
 	@@@@@@@@@
 	*/
-	CHECK(nospaces(mat(9, 7, '@', '-')) == nospaces("@@@@@@@@@\n@-------@\n@-@@@@@-@\n@-@---@-@\n@-@@@@@-@\n@-------@\n@@@@@@@@@"));
+	CHECK(nospaces(mat(9, 7, '@', '-')) == nospaces("@@@@@@@@@\n"
+													"@-------@\n"
+													"@-@@@@@-@\n"
+													"@-@---@-@\n"
+													"@-@@@@@-@\n"
+													"@-------@\n"
+													"@@@@@@@@@"));
 	
 	/* 2
 	1111111111111
@@ -40,7 +46,11 @@ TEST_CASE("Good input")
 	1           1
 	1111111111111
 	*/
-	CHECK(nospaces(mat(13, 5, '1', ' ')) == nospaces("1111111111111\n1           1\n1 111111111 1\n1           1\n1111111111111"));
+	CHECK(nospaces(mat(13, 5, '1', ' ')) == nospaces("1111111111111\n"
+													 "1           1\n"
+													 "1 111111111 1\n"
+													 "1           1\n"
+													 "1111111111111"));
 	
 	/* 3
 	$$$
@@ -49,7 +59,11 @@ TEST_CASE("Good input")
 	$+$
 	$$$
 	*/
-	CHECK(nospaces(mat(3, 5, '$', '+')) == nospaces("$$$\n$+$\n$+$\n$+$\n$$$\n"));
+	CHECK(nospaces(mat(3, 5, '$', '+')) == nospaces("$$$\n"
+													"$+$\n"
+													"$+$\n"
+													"$+$\n"
+													"$$$\n"));
 	
 	/* 4
 	#
@@ -61,14 +75,18 @@ TEST_CASE("Good input")
 	@@@
 	@@@
 	*/
-	CHECK(nospaces(mat(3, 3, '@', '@')) == nospaces("@@@\n@@@\n@@@"));
+	CHECK(nospaces(mat(3, 3, '@', '@')) == nospaces("@@@\n"
+													"@@@\n"
+													"@@@"));
 	
 	/* 6
 	!!!!!
 	!^^^!
 	!!!!!
 	*/
-	CHECK(nospaces(mat(5, 3, '!', '^')) == nospaces("!!!!!\n!^^^!\n!!!!!"));
+	CHECK(nospaces(mat(5, 3, '!', '^')) == nospaces("!!!!!\n"
+													"!^^^!\n"
+													"!!!!!"));
 	
 	/* 7
 	(((((((
@@ -81,14 +99,24 @@ TEST_CASE("Good input")
 	()))))(
 	(((((((
 	*/
-	CHECK(nospaces(mat(7, 9, '(', ')')) == nospaces("(((((((\n()))))(\n()((()(\n()()()(\n()()()(\n()()()(\n()((()(\n()))))(\n((((((("));
+	CHECK(nospaces(mat(7, 9, '(', ')')) == nospaces("(((((((\n"
+													"()))))(\n"
+													"()((()(\n"
+													"()()()(\n"
+													"()()()(\n"
+													"()()()(\n"
+													"()((()(\n"
+													"()))))(\n"
+													"((((((("));
 	
 	/* 8
 	aaaaaaaaaaaaaaa
 	abbbbbbbbbbbbba
 	aaaaaaaaaaaaaaa
 	*/
-	CHECK(nospaces(mat(15, 3, 'a', 'b')) == nospaces("aaaaaaaaaaaaaaa\nabbbbbbbbbbbbba\naaaaaaaaaaaaaaa"));
+	CHECK(nospaces(mat(15, 3, 'a', 'b')) == nospaces("aaaaaaaaaaaaaaa\n"
+													 "abbbbbbbbbbbbba\n"
+													 "aaaaaaaaaaaaaaa"));
 
 	/* 9
 	+
@@ -99,19 +127,33 @@ TEST_CASE("Good input")
 	+
 	+
 	*/
-	CHECK(nospaces(mat(1, 7, '+', '-')) == nospaces("+\n+\n+\n+\n+\n+\n+"));
+	CHECK(nospaces(mat(1, 7, '+', '-')) == nospaces("+\n"
+													"+\n"
+													"+\n"
+													"+\n"
+													"+\n"
+													"+\n"
+													"+"));
 	
 	/* 10
 	***********
 	*%%%%%%%%%*
 	***********
 	*/
-	CHECK(nospaces(mat(11, 3, '*', '%')) == nospaces("***********\n*%%%%%%%%%*\n***********"));
+	CHECK(nospaces(mat(11, 3, '*', '%')) == nospaces("***********\n"
+													 "*%%%%%%%%%*\n"
+													 "***********"));
 	
 	/* 11
 	+++++++
 	*/
-	CHECK(nospaces(mat(7, 1, '+', '-')) == nospaces("+\n+\n+\n+\n+\n+\n+"));
+	CHECK(nospaces(mat(7, 1, '+', '-')) == nospaces("+\n"
+													"+\n"
+													"+\n"
+													"+\n"
+													"+\n"
+													"+\n"
+													"+"));
 }
 
 TEST_CASE("Bad input") 

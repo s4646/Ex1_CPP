@@ -16,7 +16,7 @@ namespace ariel
     {
         string s;
         for (int i = 0; i < size; i++) {
-            s += a[i];
+            s += a.at(i);
         }
         return s;
     }
@@ -85,17 +85,15 @@ namespace ariel
     */
     string mat(int columns, int rows, char a, char b)
     {
-        const int f1 = 33;
-        const int f2 = 127;
+        const int lowLimit = 33;
+        const int highLimit = 127;
        // check for invalid input
-        if(rows%2==0 || columns%2==0 || rows<1 || columns<1 || a<f1 || b<f1 || !(a<f2) || !(b<f2))
+        if(rows%2==0 || columns%2==0 || rows<1 || columns<1 || a<lowLimit || b<lowLimit || !(a<highLimit) || !(b<highLimit))
         {
             throw invalid_argument("Invalid argument");
         }
 
-        // cout<<"rows: "<<rows<<" columns: "<<columns<<" char1: "<<a<<" char2: "<<b<<endl;
-
-        string matt;
+        string matrix;
         
         int median = (rows/2);
 
@@ -106,17 +104,17 @@ namespace ariel
             if((i+1)%2==0)
             {
                 temp = evenRow(i, columns, a, b);
-                matt += temp;
+                matrix += temp;
             }
             else
             {
                 temp = oddRow(i, columns, a, b);
-                matt += temp;
+                matrix += temp;
             }
-            matt += '\n';
+            matrix += '\n';
         }
         // reverse a copy of the top half
-        string rev = matt;
+        string rev = matrix;
         reverse(rev.begin(), rev.end());
 
         // print median row
@@ -128,11 +126,29 @@ namespace ariel
         {
             temp = oddRow(median, columns, a, b);
         }
-        matt += temp;
+        matrix += temp;
         
         // print bottom half of the mat
-            matt += rev;
-            matt +='\n';
-            return matt;
+            matrix += rev;
+            matrix +='\n';
+            return matrix;
         }
 }
+
+// int main()
+// {
+//     cout<<"first mat:"<<endl<<ariel::mat(51,31,'@','-')<<endl;
+//     cout<<"second mat:"<<endl<<ariel::mat(1,1,'&','!')<<endl;
+//     cout<<"third mat:"<<endl<<ariel::mat(1,7,'1','2')<<endl;
+//     cout<<"fourth mat:"<<endl<<ariel::mat(7,1,'*','A')<<endl;
+//     cout<<"fifth mat:"<<endl<<ariel::mat(3,3,'#','%')<<endl;
+//     try
+//     {
+//         cout<<"sixth mat:"<<endl<<ariel::mat(6,5,'@','-')<<endl;
+//     }
+//     catch(invalid_argument& e)
+//     {
+//         cout<<"caught exception: "<<e.what()<<endl;
+//     }
+//     return 0;
+// }
